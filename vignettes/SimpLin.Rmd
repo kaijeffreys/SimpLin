@@ -1,0 +1,55 @@
+---
+title: "SimpLin"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{SimpLin}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+This vignette gives a high level overview on how to run the `SimpLin` package.
+
+To download and load the package, run the following code
+
+```{r setup, eval=FALSE}
+devtools::install_github("https://github.com/kaijeffreys/SimpLin")
+
+library(SimpLin)
+```
+
+```{r, echo=FALSE}
+library(SimpLin)
+```
+
+## Usage of package
+The package has one function, `SimpLinR`. This function runs a simple linear regression. It takes in two numeric vectors, a predictor `x` and a response `y`, and outputting a List containing the regression coefficients, their standard errors, their 95% confidence intervals, the residuals, and the fitted values.
+
+An example is shown below:
+```{r}
+# Simulate data to r
+x <- rnorm(5)
+y <- -2 + rnorm(5)
+
+# Run function and print output
+mod1 <- SimpLinR(x,y)
+mod1
+```
+
+### Potential errors
+Note that it is possible for `SimpLinR` to break if the input is not done correctly. If the input vectors are not of the same length, not long enough, or are non-numeric, then the function will fail to run and throw an error.
+
+Another thing to keep in mind is that if the inputted vectors have two elements, the regression coefficients and fitted values will be returned, but there will be no ability to estimate any sense of uncertainty and variance. As such, the standard errors and confidence intervals will be returned as `NaN`. An example is shown below
+
+```{r}
+SimpLinR(c(1,2), c(3,7))
+```
+

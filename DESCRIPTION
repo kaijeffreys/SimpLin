@@ -1,0 +1,17 @@
+Package: SimpLin
+Type: Package
+Title: Simple Linear Regression
+Version: 1.0
+Date: 2025-09-03
+Author: Kai Jeffreys
+Maintainer: Kai Jeffreys <kai.jeffreys@colostate.edu>
+Description: Runs a simple linear regression. Inputs two vectors, a predictor and a response, and outputs a list containing relevant information about the regression and regression coefficients. Depends on Rcpp and therefore will be computationally quicker than other regression functions
+License: AGPL (>= 3)
+Imports: Rcpp (>= 1.1.0)
+LinkingTo: Rcpp, RcppArmadillo
+Encoding: UTF-8
+RoxygenNote: 7.3.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
