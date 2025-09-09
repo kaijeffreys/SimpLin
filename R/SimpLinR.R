@@ -20,14 +20,14 @@ SimpLinR <- function(x, y) {
   }
 
   if(length(x) < 3) {
-    warning("Vector does not have enough elements for inference")
+    warning("Vector does not have enough elements for inference\n")
     if(length(x) < 2) {
       stop("Input error: x and y need at least three elements for full use of function")
     }
   }
   
   # Run the function return the output
-  # out <- .Call("_SimpLin_SimpLinCpp.cpp", x, y, SimpLinCpp)
+  # out <- .Call(`_SimpLin_SimpLinCpp`, x, y)
   out <- SimpLinCpp(x,y)
   return(out)
 }
